@@ -1,0 +1,98 @@
+<!-- Основной корневой элемент POM (Project Object Model) -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Версия модели POM -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Глобальный уникальный идентификатор группы (обычно домен наоборот) -->
+    <groupId>com.example</groupId>
+
+    <!-- Идентификатор проекта -->
+    <artifactId>simple-word-processor</artifactId>
+
+    <!-- Версия приложения -->
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- Тип пакета: jar — стандартный JAR-файл -->
+    <packaging>jar</packaging>
+
+    <!-- Человеко-понятное имя проекта -->
+    <name>Simple Word Processor</name>
+
+    <!-- Краткое описание -->
+    <description>Простейший текстовый редактор .doc файлов на Java + Swing</description>
+
+    <!-- Указываем, что проект использует Java 8 или выше -->
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- Зависимости проекта -->
+    <dependencies>
+        <!-- В данном случае Swing входит в JDK, поэтому внешних зависимостей нет -->
+        <!-- Если бы использовали Apache POI для настоящих .doc, добавили бы здесь -->
+    </dependencies>
+
+    <!-- Конфигурация сборки -->
+    <build>
+        <plugins>
+
+            <!-- Плагин компиляции Java-кода -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+            <!-- Плагин для создания исполняемого JAR с манифестом -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Указываем основной класс с методом main -->
+                            <mainClass>com.example.Main</mainClass>
+                            <!-- Добавляем информацию о создателе -->
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- (Опционально) Плагин для создания fat JAR (если будут зависимости) -->
+            <!-- Сейчас не нужен, так как нет внешних библиотек -->
+
+        </plugins>
+    </build>
+
+    <!-- Информация об авторе (не обязательна) -->
+    <developers>
+        <developer>
+            <name>Developer</name>
+            <email>dev@example.com</email>
+            <organization>Example Org</organization>
+        </developer>
+    </developers>
+
+    <!-- Лицензия (пример) -->
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <!-- Репозитории (по умолчанию Central) -->
+    <!-- Не указаны — используется Maven Central -->
+
+</project>
